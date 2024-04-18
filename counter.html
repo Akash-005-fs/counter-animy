@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown Timer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+20&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+<div class="main">
+
+
+
+
+
+
+<div class="earth">
+
+
+<div class="earth2">
+
+
+
+
+
+
+
+<div class="plane"> <img src="large-unscreen.gif"  height="100px" ></div>
+
+<div class="ballon"> <img src="baloon-unscreen.gif"  height="100px" ></div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="countdown">
+        <div class="countdown-item">
+            <span id="days">0</span>
+            <p>DAYS</p>
+        </div>
+        <div class="countdown-item">
+            <span id="hours">0</span>
+            <p>HOURS</p>
+        </div>
+        <div class="countdown-item">
+            <span id="minutes">0</span>
+            <p>MINUTES</p>
+        </div>
+        <div class="countdown-item">
+            <span id="seconds">0</span>
+            <p>SECONDS</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<style>
+
+    body{
+        margin: 0%;
+        padding: 0%;
+    }
+    
+
+
+
+
+    .main{
+        height: 100vh;
+        width: 100%;
+     background-color: aliceblue;
+        display: flex;
+       flex-direction: column;
+        align-items: center;
+    }
+
+
+
+
+.earth{
+    height: 500px;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+    
+
+.earth2{
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    height: 70%;
+    width: 40%;
+   
+   background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(earhtcount-unscreen.gif);
+}
+
+
+
+    .countdown {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .countdown-item {
+        margin: 20px; 
+    }
+    
+    .countdown-item span {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 700;
+        font-size: 3em;
+    }
+    
+    .countdown-item p {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 900;
+        font-size: 0.8em;
+        margin: 0; 
+    }
+    
+
+
+
+
+
+.plane{
+margin-top: 87px;
+margin-left: -217px;
+}
+
+.ballon{
+margin-left: 147px;
+
+}
+
+
+
+
+
+
+
+@media screen and (max-width:700px) {
+    img{
+        height: 80px;
+    }
+
+
+
+
+.plane{
+margin-top: 107px;
+margin-left: -107px;
+}
+
+.ballon{
+margin-left: 147px;
+
+}
+
+
+
+}
+
+
+    </style>
+
+
+
+
+
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const targetDate = new Date("2024-04-30T00:00:00");
+
+    function updateCountdown() {
+        const currentDate = new Date();
+
+        if (targetDate > currentDate) {
+            const timeDifference = targetDate - currentDate;
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
+        } else {
+            document.getElementById("days").textContent = "0";
+            document.getElementById("hours").textContent = "0";
+            document.getElementById("minutes").textContent = "0";
+            document.getElementById("seconds").textContent = "0";
+        }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+});
+</script>
+
+
+
+
+
+</body>
+</html>
